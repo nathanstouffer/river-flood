@@ -11,19 +11,20 @@ def readFromFile(filename):
 
     sequence = north                    # this is intended to be an alias
     for line in f:
-        if (line[0] != "#"):            # skip commmented lines
+        if (line[0] != "#"):            # only process uncommented lines
             # identify what sequence we will add this point to
             stripped = line.rstrip()
-            if (stripped == "north"):
-                sequence = north        # intentionally an alias
-            elif (stripped == "south"):
-                sequence = south        # intentionally an alias
-            elif (stripped == "island"):
-                sequence = []
-                islands.append(sequence)
-            else:
-                split = stripped.split(" ")
-                sequence.append(Vec2(split[0], split[1]))
+            if (len(stripped) != 0):     # only process non-empty liness
+                if (stripped == "north"):
+                    sequence = north        # intentionally an alias
+                elif (stripped == "south"):
+                    sequence = south        # intentionally an alias
+                elif (stripped == "island"):
+                    sequence = []
+                    islands.append(sequence)
+                else:
+                    split = stripped.split(" ")
+                    sequence.append(Vec2(split[0], split[1]))
 
     f.close()
 

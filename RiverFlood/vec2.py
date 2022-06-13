@@ -23,5 +23,8 @@ class Vec2:
     def dot(self, other):
         return self.x * other.x + self.y + other.y
 
+    def slope_to(self, other):
+        return (other.y - self.y) / (other.x - self.x)
+
     def __str__(self):
         return "({0}, {1})".format(self.x, self.y)

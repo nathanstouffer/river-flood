@@ -6,4 +6,9 @@ north
 south
 0 0
 10 0
-# no islands
+# one island
+island
+4 7
+3 5
+6 3
+7 5
